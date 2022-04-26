@@ -3,260 +3,233 @@
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
-  <title>Vivek7</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Oswald:300,400,700|Orbitron|Roboto+Condensed:300,400,700'>
+  <title>CodePen -  Info Cards Concept</title>
+  <link href="https://fonts.googleapis.com/css?family=Poppins:900" rel="stylesheet">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 <style>
-* {
+    * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
-.wrapper {
-  position: absolute;
+i {
+  opacity: 0;
+  font-size: 18px;
+  color: #fff;
+  will-change: transform;
+  -webkit-transform: scale(0.1);
+  transform: scale(0.1);
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
 }
-.card {
-  background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/279756/2017_bg.png);
-  background-size: cover;
+h2 {
+  pointer-events: none;
+}
+.container .card {
+  position: relative;
   width: 500px;
-  height: 250px;
-  border-radius: 5px;
-  position: absolute;
-  box-shadow: -12px 12px 12px 0 rgba(92, 15, 15, 0.54);
-  overflow: hidden;
-  z-index: 4;
-}
-.card__orangeShine, .card__greenShine {
-  position: absolute;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-.card__orangeShine {
-  background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/279756/orange_shine.png);
-  right: -175px;
-  top: -25px;
-  bottom: 50px;
-  z-index: 2;
-  width: 470px;
-  height: 500px;
-}
-.card__greenShine {
-  background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/279756/green_shine.png);
-  left: 4%;
-  top: -50px;
-  bottom: -10px;
-  z-index: 1;
-  width: 400px;
-}
-.card__year {
-  font-family: "Oswald", sans-serif;
-  text-align: center;
-  color: #fff;
-  font-size: 72px;
-  line-height: 75px;
-  padding: 55px 0;
-  font-weight: 100;
-  position: relative;
-  z-index: 2;
-}
-.card__thankyou {
-  font-family: "Oswald", sans-serif;
-  position: absolute;
-  text-transform: uppercase;
-  font-weight: 100;
-  left: 4%;
-  top: 45%;
-  z-index: 2;
-  color: #fff;
-  letter-spacing: 5px;
-  line-height: 17px;
-  font-size: 12px;
-  color: rgba(255, 255, 255, 0.5);
-}
-.card__circle, .card__smallCircle {
-  position: absolute;
-  border-radius: 100%;
-  background-image: linear-gradient(-239deg, #3B4576 0%, #242A48 59%);
-  box-shadow: -10px -15px 90px 0 #191C41;
-  z-index: 2;
-}
-.card__circle {
-  background-image: url(https://user-images.githubusercontent.com/77670138/164882571-11bd2cce-5322-4256-bbb9-a612c5a2dc01.png);
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: 75px 29px;
-  right: 60px;
-  top: 65px;
-  width: 90px;
-  height: 90px;
-}
-.card__smallCircle {
-  right: 40%;
-  top: -7%;
-  width: 50px;
-  height: 50px;
-}
-.card__outer-year {
-  font-family: "Orbitron";
-}
-.card__outer-year span {
-  position: absolute;
-  color: #fff;
-  font-size: 12px;
-  z-index: 4;
-}
-.card__outer-year span:nth-child(1):after, .card__outer-year span:nth-child(4):after {
-  content: "";
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 100%;
-  border-bottom: 2px solid #fff;
-}
-.card__outer-year span:nth-child(1) {
-  top: 13px;
-  left: 13px;
-}
-.card__outer-year span:nth-child(2) {
-  left: none;
-  top: 13px;
-  right: 13px;
-  
-}
-.card__outer-year span:nth-child(3) {
-  top: none;
-  bottom: 13px;
-  left: 13px;
-}
-.card__outer-year span:nth-child(4) {
-  top: none;
-  left: none;
-  right: 13px;
-  bottom: 13px;
-}
-.card__comet {
-  position: relative;
-  width: 8px;
-  height: 8px;
-  right: -1px;
-  top: -10px;
+  height: 200px;
   background-color: #fff;
-  border-radius: 100%;
+  overflow: hidden;
+  margin-bottom: 4px;
 }
-.card__cometOuter {
-  position: absolute;
-  top: 30%;
-  left: 25%;
-}
-.card__comet--second {
-  right: -15px;
-  top: -45px;
-  transform: scale(0.6);
-}
-.card__comet:before, .card__comet:after {
+.container .card:before {
   content: "";
+  z-index: 99;
   position: absolute;
-  left: 0;
-  top: 0;
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.2) 27%, rgba(255, 255, 255, 0) 100%);
-  border-radius: 20px;
-  transform: rotate(-45deg);
+  top: -10px;
+  left: 32px;
+  display: block;
+  width: 16px;
+  height: 16px;
+  border-radius: 16px;
+  background-color: #E6E5E1;
 }
-.card__comet:before {
-  width: 18px;
-  height: 70px;
-  transform-origin: -2px 13px;
-}
-.card__comet:after {
-  width: 12px;
-  height: 80px;
-  transform-origin: 0px 8px;
-}
-.source {
+.container .card:after {
+  content: "";
+  z-index: 99;
   position: absolute;
-  width: 100%;
-  left: 0;
-  bottom: -30px;
-  opacity: 0.5;
+  bottom: -10px;
+  left: 32px;
+  display: block;
+  width: 16px;
+  height: 16px;
+  border-radius: 16px;
+  background-color: #E6E5E1;
+}
+.container .card ul {
+  z-index: 99;
+  position: absolute;
+  left: 39px;
+  top: 5px;
+  list-style-type: none;
+}
+.container .card ul li {
+  width: 2px;
+  height: 2px;
+  border-radius: 2px;
+  margin: 6px 0;
+  background-color: #E6E5E1;
+}
+.container .card h2 {
+  z-index: 99;
+  font-family: "Poppins", sans-serif;
+  position: absolute;
+  bottom: 0;
+  right: 130px;
+  font-size: 45px;
+  font-weight: 700;
+  color: #fff;
+}
+.container .card .fa-arrow-right {
+  z-index: 100;
+  position: absolute;
+  right: 75px;
+  bottom: 25px;
+  font-size: 40px;
+  cursor: pointer;
+}
+.container .card p {
+  z-index: 99;
+  position: absolute;
+  top: 20px;
+  right: 70px;
+  color: #333;
+  opacity: 0.7;
   font-size: 12px;
+  letter-spacing: 1px;
+  writing-mode: vertical-lr;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
 }
-.source a {
-  color: #000;
+.container .card .pic {
+  z-index: 100;
+  width: 400px;
+  height: 200px;
+  background-image: url("https://images.unsplash.com/photo-1525543907410-b2562b6796d6?ixlib=rb-0.3.5&s=9ff8e5e718a6a40cbd0e1471235912f4&auto=format&fit=crop&w=3452&q=80");
+  background-size: 100% 100%;
+  filter: grayscale(100%);
+}
+.container .card .social {
+  position: absolute;
+  left: 60px;
+  top: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 180px;
+  height: 64px;
+  border-radius: 80px;
+}
+.container .card .social i:nth-of-type(1) {
+  -webkit-transition-delay: 0.4s;
+  transition-delay: 0.4s;
+}
+.container .card .social i:nth-of-type(2) {
+  -webkit-transition-delay: 0.3s;
+  transition-delay: 0.3s;
+}
+.container .card .social i:nth-of-type(3) {
+  -webkit-transition-delay: 0.2s;
+  transition-delay: 0.2s;
+}
+.container .card .social i:nth-of-type(4) {
+  -webkit-transition-delay: 0.1s;
+  transition-delay: 0.1s;
+}
+.container .card:hover i {
+  opacity: 1;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
+.container .card button {
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  width: 30px;
+  height: 30px;
+  background-color: #DA4D1D;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.3s ease;
+  mix-blend-mode: hard-light;
+}
+.container .card button i {
+  font-size: 3rem;
+}
+.container .card:hover button {
+  transform: scale(16.5);
+}
+.container .card:hover p {
+  color: #fff;
+}
+.container .card:hover .pic {
+  filter: grayscale(0);
+}
+.container .card2 .pic {
+  background-image: url("https://avatars.githubusercontent.com/u/100198728?v=4");
+}
+.container .card2 button {
+  background-color: #2b26c3;
+}
+
+.dr {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  width: 100px;
 }
     </style>
-
 </head>
 <body>
-<div class="wrapper">
-	<div class="card">
-		<div class="card__year">
-			Vivek<br/>Limbad
-		</div>
-		<div class="card__cometOuter">
-			<div class="card__comet"></div>
-			<div class="card__comet card__comet--second">
-			</div>
-		</div>
-        <div class="card__img"></div>   
-		<div class="card__circle"></div>
-		<div class="card__smallCircle"></div>
-		<div class="card__orangeShine"></div>
-		<div class="card__greenShine"></div>
-		<div class="card__thankyou">Data Science <br/>Intern at<br/> Happy fintech
-		</div>
-		<div class="card__outer-year">
-        <span><a href="https://github.com/7Vivek" style="color:#fff;text-decoration: none;">Github</a></span>
-        <span><a href="https://www.linkedin.com/in/vivek-limbad-412667215/" style="color:#fff;text-decoration: none;">LinkedIn</a></span>
-        <span>vivek@happyness.net</span>
-        <span>9769107288</span>
-		</div>
-	</div>
+<!-- partial:index.partial.html -->
+<div class="container">
+  <div class="card">
+    <h2>Vivek Limbad</h2>
+    <i class="fas fa-arrow-right"></i>
+    <p>a lonely trip.</p>
+    <div class="pic"></div>
+    <ul>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+    <div class="social">
+      <i class="fab fa-facebook-f"></i>
+      <i class="fab fa-twitter"></i>
+      <i class="fab fa-instagram"></i>
+      <i class="fab fa-github"></i>
+    </div>
+    <button>
+    </button>
+  </div>
 </div>
-  <script>
-    const $circle = document.querySelector('.card__circle');
-const $smallCircle = document.querySelector('.card__smallCircle');
-const $year = document.querySelector('.card__year');
-const $card = document.querySelector('.card');
-const $cardOrangeShine = document.querySelector('.card__orangeShine');
-const $cardThankYou = document.querySelector('.card__thankyou');
-const $cardComet = document.querySelector('.card__cometOuter');
-
-const generateTranslate = (el, e, value) => {
-  el.style.transform = `translate(${e.clientX * value}px, ${e.clientY * value}px)`;
-};
-// http://stackoverflow.com/a/1480137
-const cumulativeOffset = element => {
-  var top = 0,left = 0;
-  do {
-    top += element.offsetTop || 0;
-    left += element.offsetLeft || 0;
-    element = element.offsetParent;
-  } while (element);
-
-  return {
-    top: top,
-    left: left };
-
-};
-document.onmousemove = event => {
-  const e = event || window.event;
-  const x = (e.pageX - cumulativeOffset($card).left - 350 / 2) * -1 / 100;
-  const y = (e.pageY - cumulativeOffset($card).top - 350 / 2) * -1 / 100;
-
-  const matrix = [
-  [1, 0, 0, -x * 0.00005],
-  [0, 1, 0, -y * 0.00005],
-  [0, 0, 1, 1],
-  [0, 0, 0, 1]];
-
-
-  generateTranslate($smallCircle, e, 0.03);
-  generateTranslate($cardThankYou, e, 0.03);
-  generateTranslate($cardOrangeShine, e, 0.09);
-  generateTranslate($circle, e, 0.05);
-  generateTranslate($year, e, 0.03);
-  generateTranslate($cardComet, e, 0.05);
-
-  $card.style.transform = `matrix3d(${matrix.toString()})`;
-};</script>
-
 </body>
 </html>
